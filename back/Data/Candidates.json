@@ -1,32 +1,29 @@
 [
   {
-    "nombre_completo": "Tony Stark",
-    "correo_electronico": "tony.stark@avengers.com",
+    "nombre_completo": "Perdo",
+    "correo_electronico": "perdo.uuu@gmail.com",
     "institucion_educativa": "Instituto Stark",
-    "carrera_cursada": "Ingeniería Mecánica",
-    "promedio_academico": 9.2,
+    "carrera_cursada": "pedriños ",
+    "promedio_academico": 10,
     "habilidades": [
-      "tecnología",
-      "ingenio",
-      "liderazgo"
+      "Liderazgo"
     ],
-    "experiencia_laboral": "CEO de Stark Industries, Vengador",
+    "experiencia_laboral": "trvyujryvumkkuy",
     "id": 1,
-    "puntuacion": 71.42857142857142
+    "puntuacion": 0
   },
   {
-    "nombre_completo": "Peter Parker",
-    "correo_electronico": "peter.parker@avengers.com",
-    "institucion_educativa": "Academia de Héroes de Xavier",
-    "carrera_cursada": "Física Aplicada",
-    "promedio_academico": 8.5,
+    "nombre_completo": "tuykjtyk",
+    "correo_electronico": "tuyktyuktyu@gmail.com",
+    "institucion_educativa": "treherth",
+    "carrera_cursada": "heyr5twnbhe",
+    "promedio_academico": 5.9,
     "habilidades": [
-      "agilidad sobrehumana",
-      "tecnología",
-      "sentido arácnido"
+      "Tecnología",
+      "Fuerza"
     ],
-    "experiencia_laboral": "Vigilante nocturno",
+    "experiencia_laboral": "456yjn46j46",
     "id": 2,
-    "puntuacion": 79.42857142857143
+    "puntuacion": 0
   }
 ]
