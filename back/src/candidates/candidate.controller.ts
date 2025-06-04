@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   Controller,
@@ -43,6 +42,7 @@ export class CandidateController {
   @ApiQuery({ name: 'institucion', required: false, type: String, description: 'Filtro por institución educativa (parcial)', example: 'Xavier' })
   @ApiQuery({ name: 'carrera', required: false, type: String, description: 'Filtro por carrera cursada (parcial)', example: 'Física' })
   @ApiQuery({ name: 'puntaje_min', required: false, type: Number, description: 'Puntaje mínimo de preselección (0-100)', example: 60 })
+  @ApiQuery({ name: 'carrera', required: false, type: String, description: 'Carrera a buscar entre los candidatos.', example: 'Física Aplicada' })
   @ApiResponse({
     status: 200,
     description: 'Lista de candidatos paginada',
@@ -65,7 +65,7 @@ export class CandidateController {
     return this.candidateService.getCandidates(page, limit, {nombre, institucion, carrera, puntaje_min});
   }; 
 
-    @Get('report')
+  @Get('report')
   @ApiOperation({
     summary: 'Generar reporte PDF de candidatos preseleccionados',
     description: 'Genera un reporte en formato PDF con los candidatos preseleccionados que cumplen con los filtros especificados (por defecto, puntaje mínimo de 60).',

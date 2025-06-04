@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/await-thenable */
 /* eslint-disable no-useless-catch */
 /* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import {
@@ -17,7 +15,6 @@ import { CandidateDTO, FilterDTO, NewCandidateDTO, PaginationDTO } from './candi
 import { schools_defauld } from 'Data/schools';
 import { RELEVANT_SKILLS } from 'Data/skills';
 import { Readable } from 'stream';
-
 
 @Injectable()
 export class CandidateService {
