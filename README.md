@@ -1,5 +1,9 @@
 # 🛡️ S.H.I.E.L.D. Sistema de Reclutamiento - Proyecto SimpleHuman
 
+Para acceder a la documentación:
+
+Back: npm run dev   link: http://localhost:3000/api
+
 **Documento Clasificado: Nivel 7 de Autorización Requerido**
 
 Agente, bienvenido a **SimpleHuman**, la plataforma de reclutamiento de S.H.I.E.L.D., diseñada para identificar, registrar y evaluar candidatos potenciales. Este sistema es clave para proteger a la humanidad de amenazas extraordinarias.
