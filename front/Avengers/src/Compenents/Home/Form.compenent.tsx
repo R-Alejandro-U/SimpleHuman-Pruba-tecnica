@@ -70,7 +70,6 @@ export const FormCandidate: React.FC<{
               <option value="Academia de Héroes de Xavier" />
               <option value="Instituto Stark" />
               <option value="Universidad Asgardiana" />
-              ['Academia de Héroes de Xavier','Instituto Stark', 'Universidad Asgardiana']
             </datalist>
             {errors?.institucion_educativa && <p className={styles.error}>{errors?.institucion_educativa}</p>}
           </div>

@@ -33,6 +33,7 @@ export class CandidateService {
         );
       return candidate;
     } catch (error) {
+      if(error instanceof NotFoundException) throw error;
       throw new InternalServerErrorException(
         undefined,
         `Ocurrió un error inesperado. Error: ${error.message || error}.`,

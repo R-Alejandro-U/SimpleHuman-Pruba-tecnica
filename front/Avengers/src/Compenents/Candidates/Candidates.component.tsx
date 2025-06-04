@@ -7,6 +7,7 @@ import type { CandidateFormState } from '../Home/Interfaces/HomeForm.interface';
 
 export const SearchCandidates: React.FC = () => {
   const [filters, setFilters] = useState({
+    id: '',
     nombre: '',
     carrera: '',
     institucion: '',
@@ -16,8 +17,15 @@ export const SearchCandidates: React.FC = () => {
 
   const fetchCandidates = async () => {
     try {
-        const response = await axios.get(`http://localhost:3000/candidate?nombre=${filters.nombre}&carrera=${filters.carrera}&institucion=${filters.institucion}&puntaje_min=${+filters.puntaje_min}`);
-        setCandidates(response.data.candidates || []);
+      if(!filters.id){
+        const { data } = await axios.get(`http://localhost:3000/candidate?nombre=${filters.nombre}&carrera=${filters.carrera}&institucion=${filters.institucion}&puntaje_min=${+filters.puntaje_min}`);
+        setCandidates(data.candidates || []);
+      }else{
+        const id = parseInt(filters.id, 10);
+        if (isNaN(id) || id < 1) throw new Error('El ID debe ser un número positivo.');
+        const { data } = await axios.get(`http://localhost:3000/candidate/${id}`);
+        setCandidates(data ? [data] : []);
+      }
     } catch (error: any) {
         Swal.fire({
             title: 'Error',
@@ -25,7 +33,7 @@ export const SearchCandidates: React.FC = () => {
             icon: 'error',
             width: 600,
             padding: '3em',
-            color: '#fff',
+            color: 'red',
             background: `url("https://media.vandal.net/i/1280x720/9-2020/20209911271965_1.jpg.webp") no-repeat center center`,
         });
     }
@@ -104,6 +112,22 @@ export const SearchCandidates: React.FC = () => {
               step="1"
               className={styles.input}
               value={filters.puntaje_min}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="id" className={styles.label}>
+              Buscar por ID
+            </label>
+            <input
+              type="number"
+              name="id"
+              id="id"
+              placeholder="Ej. 6"
+              min="1"
+              step="1"
+              className={styles.input}
+              value={filters.id}
               onChange={handleInputChange}
             />
           </div>
