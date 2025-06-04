@@ -67,9 +67,10 @@ export const FormCandidate: React.FC<{
               onChange={change}
             />
             <datalist id="instituciones">
-              <option value="Instituto Stark" />
               <option value="Academia de Héroes de Xavier" />
-              <option value="MIT" />
+              <option value="Instituto Stark" />
+              <option value="Universidad Asgardiana" />
+              ['Academia de Héroes de Xavier','Instituto Stark', 'Universidad Asgardiana']
             </datalist>
             {errors?.institucion_educativa && <p className={styles.error}>{errors?.institucion_educativa}</p>}
           </div>
@@ -121,10 +122,10 @@ export const FormCandidate: React.FC<{
               value={data.habilidades ?? ''}
             />
             <datalist id="habilidad-opciones">
-              <option value="Tecnología" />
-              <option value="Liderazgo" />
-              <option value="Agilidad" />
-              <option value="Fuerza" />
+              <option value="agilidad sobrehumana" />
+              <option value="combate" />
+              <option value="sentido arácnido" />
+              <option value="magia" />
             </datalist>
             {errors?.habilidades && <p className={styles.error}>{errors?.habilidades}</p>}
           </div>
