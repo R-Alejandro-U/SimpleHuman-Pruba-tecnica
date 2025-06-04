@@ -3,6 +3,8 @@
 /node_modules
 /build
 
+/Data/Candidates.json
+
 # Logs
 logs
 *.log

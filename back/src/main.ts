@@ -1,8 +1,22 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { ValidationPipe } from '@nestjs/common';
+import { setupSwagger } from './config/Swagger.config';
 
-async function bootstrap() {
+async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
-  await app.listen(process.env.PORT ?? 3000);
+  app.enableCors();
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      transformOptions: { enableImplicitConversion: true },
+      forbidNonWhitelisted: true,
+      whitelist: true,
+    }),
+  );
+  setupSwagger(app);
+  await app.listen(process.env.PORT ?? 3000).then(() => console.log('Servidor escuchando en el puerto', process.env.PORT ?? 3000));
 }
 bootstrap();
