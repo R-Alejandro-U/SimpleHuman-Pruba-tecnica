@@ -1,0 +1,62 @@
+[
+  {
+    "nombre_completo": "Tony Stark",
+    "correo_electronico": "tony.stark@avengers.com",
+    "institucion_educativa": "Instituto Stark",
+    "carrera_cursada": "Ingeniería Mecánica",
+    "promedio_academico": 9.2,
+    "habilidades": [
+      "tecnología",
+      "ingenio",
+      "liderazgo"
+    ],
+    "experiencia_laboral": "CEO de Stark Industries, Vengador",
+    "id": 1,
+    "puntuacion": 71.42857142857142
+  },
+  {
+    "nombre_completo": "Tony Stark",
+    "correo_electronico": "tony.stark@avenges.com",
+    "institucion_educativa": "Instituto Stark",
+    "carrera_cursada": "Ingeniería Mecánica",
+    "promedio_academico": 9.2,
+    "habilidades": [
+      "tecnología",
+      "ingenio",
+      "liderazgo"
+    ],
+    "experiencia_laboral": "CEO de Stark Industries, Vengador",
+    "id": 2,
+    "puntuacion": 71.42857142857142
+  },
+  {
+    "nombre_completo": "Tony Stark",
+    "correo_electronico": "tony.stark@avnges.com",
+    "institucion_educativa": "Instituto Stark",
+    "carrera_cursada": "Ingeniería Mecánica",
+    "promedio_academico": 9.2,
+    "habilidades": [
+      "tecnología",
+      "ingenio",
+      "liderazgo"
+    ],
+    "experiencia_laboral": "CEO de Stark Industries, Vengador",
+    "id": 3,
+    "puntuacion": 71.42857142857142
+  },
+  {
+    "nombre_completo": "Tony Stark",
+    "correo_electronico": "tony.stak@avnges.com",
+    "institucion_educativa": "Instituto Stark",
+    "carrera_cursada": "Ingeniería Mecánica",
+    "promedio_academico": 9.2,
+    "habilidades": [
+      "tecnología",
+      "ingenio",
+      "liderazgo"
+    ],
+    "experiencia_laboral": "CEO de Stark Industries, Vengador",
+    "id": 4,
+    "puntuacion": 71.42857142857142
+  }
+]
