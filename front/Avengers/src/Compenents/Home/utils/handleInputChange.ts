@@ -5,9 +5,7 @@ export const handleImputChange = ({ target }: React.ChangeEvent<HTMLInputElement
   const {name, value} = target;
   SetLogin((prevState: any) => ({
     ...prevState,
-    [name]: name === "habilidades" 
-      ? value.split(",").map(s => s.trim())
-      : name === 'promedio_academico'
+    [name]: name === 'promedio_academico'
         ? value === '' ? undefined : Number(value)
         : value
   }));

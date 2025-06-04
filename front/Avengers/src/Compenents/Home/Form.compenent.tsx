@@ -3,9 +3,17 @@ import styles from "./style/Home.module.css";
 import logo from '../../assets/img/download-removebg-preview.png';
 import type { CandidateFormState, Errors } from "./Interfaces/HomeForm.interface";
 
+const habilidadesDisponibles = [
+  "agilidad sobrehumana",
+  "combate",
+  "sentido arácnido",
+  "magia",
+  "ninguna"
+];
+
 export const FormCandidate: React.FC<{
   data: CandidateFormState,
-  change: (e: React.ChangeEvent<HTMLInputElement>) => void,
+  change: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void,
   submit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>,
   errors: Errors | undefined
 }> = ({ data, change, submit, errors }) => {
@@ -56,23 +64,22 @@ export const FormCandidate: React.FC<{
             <label htmlFor="institucion_educativa" className={styles.label}>
               Institución Educativa
             </label>
-            <input
-              type="text"
-              placeholder="Academia de Héroes de Xavier"
+            <select
               name="institucion_educativa"
               id="institucion_educativa"
-              list="instituciones"
               className={styles.input}
               value={data.institucion_educativa}
               onChange={change}
-            />
-            <datalist id="instituciones">
-              <option value="Academia de Héroes de Xavier" />
-              <option value="Instituto Stark" />
-              <option value="Universidad Asgardiana" />
-            </datalist>
+            >
+              <option value="">-- Selecciona una institución --</option>
+              <option value="Academia de Héroes de Xavier">Academia de Héroes de Xavier</option>
+              <option value="Instituto Stark">Instituto Stark</option>
+              <option value="Universidad Asgardiana">Universidad Asgardiana</option>
+              <option value="Otra">Otra</option>
+            </select>
             {errors?.institucion_educativa && <p className={styles.error}>{errors?.institucion_educativa}</p>}
           </div>
+
           <div className={styles.formGroup}>
             <label htmlFor="carrera_cursada" className={styles.label}>
               Carrera
@@ -107,25 +114,39 @@ export const FormCandidate: React.FC<{
             {errors?.promedio_academico && <p className={styles.error}>{errors?.promedio_academico}</p>}
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="habilidades" className={styles.label}>
-              Habilidades
-            </label>
-            <input
-              type="text"
-              placeholder="Agilidad, Tecnología, Liderazgo"
-              name="habilidades"
-              id="habilidades"
-              list="habilidad-opciones"
-              className={styles.input}
-              onChange={change}
-              value={data.habilidades ?? ''}
-            />
-            <datalist id="habilidad-opciones">
-              <option value="agilidad sobrehumana" />
-              <option value="combate" />
-              <option value="sentido arácnido" />
-              <option value="magia" />
-            </datalist>
+            <label className={styles.label}>Habilidades</label>
+            <div>
+              {habilidadesDisponibles.map(habilidad => (
+                <label key={habilidad} style={{ display: "block" }}>
+                  <input
+                    type="checkbox"
+                    name="habilidades"
+                    value={habilidad}
+                    checked={data.habilidades?.includes(habilidad) ?? false}
+                    onChange={e => {
+                      const checked = e.target.checked;
+                      const value = e.target.value;
+                      let nuevasHabilidades = data.habilidades ? [...data.habilidades] : [];
+
+                      if (checked) {
+                        nuevasHabilidades.push(value);
+                      } else {
+                        nuevasHabilidades = nuevasHabilidades.filter(h => h !== value);
+                      }
+                      change({
+                        ...e,
+                        target: {
+                          ...e.target,
+                          name: "habilidades",
+                          value: nuevasHabilidades
+                        }
+                      } as any);
+                    }}
+                  />
+                  {habilidad === "ninguna" ? "No tiene habilidades relevantes" : habilidad}
+                </label>
+              ))}
+            </div>
             {errors?.habilidades && <p className={styles.error}>{errors?.habilidades}</p>}
           </div>
           <div className={styles.formGroup}>

@@ -18,6 +18,8 @@ export const Home: React.FC = () => {
         nombre_completo: "",
         promedio_academico: undefined
     });
+    console.log(candidate);
+    
     const [Errors, setErrors] = useState<Errors | undefined>({
         carrera_cursada: "",
         correo_electronico: "",
