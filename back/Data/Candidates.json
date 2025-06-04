@@ -13,5 +13,20 @@
     "experiencia_laboral": "CEO de Stark Industries, Vengador",
     "id": 1,
     "puntuacion": 71.42857142857142
+  },
+  {
+    "nombre_completo": "Peter Parker",
+    "correo_electronico": "peter.parker@avengers.com",
+    "institucion_educativa": "Academia de Héroes de Xavier",
+    "carrera_cursada": "Física Aplicada",
+    "promedio_academico": 8.5,
+    "habilidades": [
+      "agilidad sobrehumana",
+      "tecnología",
+      "sentido arácnido"
+    ],
+    "experiencia_laboral": "Vigilante nocturno",
+    "id": 2,
+    "puntuacion": 79.42857142857143
   }
 ]

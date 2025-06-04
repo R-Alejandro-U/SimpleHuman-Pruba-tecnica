@@ -7,6 +7,7 @@ import { setupSwagger } from './config/Swagger.config';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
+  app.enableCors();
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
@@ -16,6 +17,6 @@ async function bootstrap(): Promise<void> {
     }),
   );
   setupSwagger(app);
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 3000).then(() => console.log('Servidor escuchando en el puerto', process.env.PORT ?? 3000));
 }
 bootstrap();

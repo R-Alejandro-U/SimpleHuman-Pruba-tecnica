@@ -61,29 +61,11 @@ export class CandidateController {
   ): Promise<PaginationDTO> {
     if(puntaje_min < 0 || puntaje_min > 100) throw new BadRequestException('El puntaje debe ser mayor a 0 y menor a 100');
     if(page <= 0 || isNaN(page)) page = 1;
-    if(limit <= 0 || isNaN(limit)) limit = 1;
+    if(limit <= 0 || isNaN(limit)) limit = 10;
     return this.candidateService.getCandidates(page, limit, {nombre, institucion, carrera, puntaje_min});
-  }
+  }; 
 
-  @Get(':id')
-  @ApiOperation({
-    summary: 'Obtener candidato por ID',
-    description: 'Recupera los detalles de un candidato específico en S.H.I.E.L.D. usando su ID único.',
-  })
-  @ApiParam({ name: 'id', type: Number, description: 'ID del candidato', example: 1 })
-  @ApiResponse({
-    status: 200,
-    description: 'Detalles del candidato',
-    type: CandidateDTO,
-  })
-  @ApiBadRequestResponse({ description: 'ID inválido (no es un número o <= 0)' })
-  @ApiNotFoundResponse({ description: 'Candidato no encontrado' })
-  @ApiInternalServerErrorResponse({ description: 'Error interno del servidor' })
-  async getCandidateById(@Param('id', ParseIntPipe) id: number): Promise<CandidateDTO> {
-    return this.candidateService.getCandidateById(id);
-  }
-
-  @Get('report')
+    @Get('report')
   @ApiOperation({
     summary: 'Generar reporte PDF de candidatos preseleccionados',
     description: 'Genera un reporte en formato PDF con los candidatos preseleccionados que cumplen con los filtros especificados (por defecto, puntaje mínimo de 60).',
@@ -104,6 +86,24 @@ export class CandidateController {
   @ApiInternalServerErrorResponse({ description: 'Error al generar el PDF' })
   async generatePDFReport(): Promise<StreamableFile> {
     return this.candidateService.generetePDFReport();
+  }
+
+  @Get(':id')
+  @ApiOperation({
+    summary: 'Obtener candidato por ID',
+    description: 'Recupera los detalles de un candidato específico en S.H.I.E.L.D. usando su ID único.',
+  })
+  @ApiParam({ name: 'id', type: Number, description: 'ID del candidato', example: 1 })
+  @ApiResponse({
+    status: 200,
+    description: 'Detalles del candidato',
+    type: CandidateDTO,
+  })
+  @ApiBadRequestResponse({ description: 'ID inválido (no es un número o <= 0)' })
+  @ApiNotFoundResponse({ description: 'Candidato no encontrado' })
+  @ApiInternalServerErrorResponse({ description: 'Error interno del servidor' })
+  async getCandidateById(@Param('id', ParseIntPipe) id: number): Promise<CandidateDTO> {
+    return this.candidateService.getCandidateById(id);
   }
 
   @Post()
